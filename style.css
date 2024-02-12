@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+:root{
+    --color: #3a7d8c;
+}
+body{
+    overflow: hidden;
+}
+.Home{
+    position: relative;
+    background-image: url(./background.png);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0px 100px;
+    z-index: 1;
+}
+.img{
+    width: 800px;
+    position: absolute;
+    right: -80px;
+    bottom: 20px;
+    animation: loadAnimation_up 2s ease;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding: 40px 100px;
+    font-size: 26px;
+    animation: loadAnimation_down 2s ease;
+}
+header nav{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav a{
+    font-size: 26px;
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+header nav a::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2.5px;
+    width: 100%;
+    background-color: black;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s;
+}
+header nav a:hover::before{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.text-box{
+    width: 50%;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    animation: loadAnimation_up 2s ease;
+}
+.text-box h1{
+    font-size: 50px;
+    font-weight: 600;
+}
+.text-box .Animated-text{
+    color: var(--color);
+    font-size: 50px;
+    animation: textAnimation 4s ease infinite;
+}
+@keyframes textAnimation {
+    0%{
+        filter: drop-shadow(0px 0px 0px var(--color));
+    }
+    70%{
+        filter: drop-shadow(0px 0px 5px var(--color));
+    }
+    100%{
+        filter: drop-shadow(0px 0px 0px var(--color));
+    }
+}
+.text-box span{
+    display: flex;
+    gap: 12px;
+}
+.text-box p{
+    margin: 25px 0px;
+}
+.text-box .Btn{
+    color: var(--color);
+    width: 170px;
+    height: 42px;
+    border: 2px solid var(--color);
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .3s;
+}
+.text-box .Btn:hover{
+    background-color: var(--color);
+    color: white;
+    box-shadow: 0px 0px 15px var(--color);
+}
+@keyframes loadAnimation_up {
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes loadAnimation_down {
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
